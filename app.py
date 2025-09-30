@@ -8,7 +8,7 @@ app = Flask(__name__)
 LOVE_MESSAGES = [
     "You make every day an adventure. ❤️",
     "I appreciate how hard you work for our family.",
-    "Thinking about that time we [insert specific memory] always makes me smile.",
+    "Thinking about that time we danced in the rain always makes me smile.",
     "Your laugh is my favorite sound in the world.",
     "Today's affirmation: I'm so lucky to be your partner."
 ]
