@@ -135,6 +135,20 @@ LOVE_MESSAGES = [
     "Life is better with you in it.",
     "You make my heart smile.",
     "life is goooooooood, Allhamdulillah!!😊",
+    "Just reminding you that you're my favorite person in the world.",
+    "Have I told you today how much I love you? Because I do! 🥰❤️",
+]
+
+# --- UPDATED: P.S. Message List ---
+PS_MESSAGES = [
+    "P.S. Don't forget to take a break. Love you!",
+    "P.S. Have a cup of coffee.",
+    "P.S. Eat a snack if you're hungry! 🍎😊",
+    "P.S. Don't forget to sip water and stay hydrated! 💧😊",
+    "P.S. Please have your lunch on time! 🍽️😊",
+    "P.S. Pray first, everything else will fall into place.❤️",
+    "P.S. I love you! 🥰❤️",
+    "P.S. Text me when you get a chance. 📱😊",
 ]
 
 @app.route('/')
@@ -142,10 +156,13 @@ def home():
     # 1. Get a random message from the list
     daily_message = random.choice(LOVE_MESSAGES)
 
-    # 2. Get the current time/date
+# 2. Get a random message from the P.S. list 
+    random_ps_note = random.choice(PS_MESSAGES)
+
+    # 3. Get the current time/date
     current_time = datetime.datetime.now().strftime("%A, %B %d, %Y")
 
-    # 3. Define the countdown target (Anniversary: February 24th)
+    # 4. Define the countdown target (Anniversary: February 24th)
     today = datetime.datetime.now()
     anniversary_this_year = datetime.datetime(today.year, 2, 24)
     if today > anniversary_this_year:
@@ -161,7 +178,8 @@ def home():
     return render_template('index.html',
                            message=daily_message,
                            date=current_time,
-                           countdown=days_left)
+                           countdown=days_left,
+                           ps_note=random_ps_note)
 
 if __name__ == '__main__':
     HOST_IP = os.getenv('LOCAL_HOST_IP', '127.0.0.1')
